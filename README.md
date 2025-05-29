@@ -23,7 +23,7 @@ Add this to your package's `pubspec.yaml` file:
 dependencies:
   vative_share:
     git:
-      url: https://github.com/furqan-ahmd/vative_share
+      url: https://github.com/vativeappsorg/vative_share
       ref: main
 ```
 
