@@ -3,12 +3,8 @@ import 'vative_share_platform_interface.dart';
 class VativeShare {
   VativeShare._();
 
-  static final VativeShare _instance = VativeShare._();
-
-  static VativeShare get instance => _instance;
-
   /// Share an image to Instagram Story
-  Future<void> shareImageToInstaStory({
+  static Future<void> shareImageToInstaStory({
     required String imagePath,
     required String facebookAppId,
     String? stickerPath,
@@ -25,7 +21,7 @@ class VativeShare {
   }
 
   /// Share a video to Instagram Story
-  Future<void> shareVideoToInstaStory({
+  static Future<void> shareVideoToInstaStory({
     required String videoPath,
     required String facebookAppId,
     String? stickerPath,
@@ -42,7 +38,7 @@ class VativeShare {
   }
 
   /// Share an image to Instagram feed
-  Future<void> shareImageToFeed({
+  static Future<void> shareImageToFeed({
     required String imagePath,
   }) {
     return VativeSharePlatform.instance
@@ -50,7 +46,7 @@ class VativeShare {
   }
 
   /// Share a video to Instagram feed
-  Future<void> shareVideoToInstagramFeed({
+  static Future<void> shareVideoToInstagramFeed({
     required String videoPath,
   }) {
     return VativeSharePlatform.instance
@@ -58,7 +54,7 @@ class VativeShare {
   }
 
   /// Share a link to Facebook feed with an optional quote
-  Future<void> shareLinkToFacebookFeed({
+  static Future<void> shareLinkToFacebookFeed({
     required String url,
     required String quote,
   }) {
@@ -69,11 +65,11 @@ class VativeShare {
   }
 
   /// Check if the Instagram app is installed
-  Future<bool> isInstagramInstalled() {
+  static Future<bool> isInstagramInstalled() {
     return VativeSharePlatform.instance.isInstagramInstalled();
   }
 
-  Future<void> shareLinkToWhatsApp({
+  static Future<void> shareLinkToWhatsApp({
     required String url,
     required String message,
   }) {
@@ -84,7 +80,7 @@ class VativeShare {
   }
   
 
-  Future<void> shareLinkToSnapchat({
+  static Future<void> shareLinkToSnapchat({
   required String url,
   required String message,
 }) {
