@@ -147,17 +147,13 @@ if (!isInstagramInstalled) {
 
 ```dart
 try {
-  bool success = await VativeShare.shareImageToInstaStory(
+  await VativeShare.shareImageToInstaStory(
     imagePath: '/path/to/your/image.jpg',
     facebookAppId: 'YOUR_FACEBOOK_APP_ID',
     stickerPath: '/path/to/sticker.png', // Optional
     topBackgroundColor: '#FF0000', // Optional
     bottomBackgroundColor: '#00FF00', // Optional
   );
-  
-  if (success) {
-    print('Successfully shared to Instagram Story');
-  }
 } catch (e) {
   print('Error sharing to Instagram Story: $e');
 }
@@ -167,7 +163,7 @@ try {
 
 ```dart
 try {
-  bool success = await VativeShare.shareVideoToInstaStory(
+  await VativeShare.shareVideoToInstaStory(
     videoPath: '/path/to/your/video.mp4',
     facebookAppId: 'YOUR_FACEBOOK_APP_ID',
     stickerPath: '/path/to/sticker.png', // Optional
@@ -175,9 +171,6 @@ try {
     bottomBackgroundColor: '#FFFFFF', // Optional
   );
   
-  if (success) {
-    print('Successfully shared video to Instagram Story');
-  }
 } catch (e) {
   print('Error sharing video to Instagram Story: $e');
 }
@@ -188,7 +181,7 @@ try {
 ```dart
 // Share to Facebook
 try {
-  bool success = await VativeShare.shareLinkToFacebook(
+  await VativeShare.shareLinkToFacebook(
     url: 'https://example.com',
     quote: 'Check out this amazing content!', // iOS only
   );
@@ -198,7 +191,7 @@ try {
 
 // Share to WhatsApp
 try {
-  bool success = await VativeShare.shareLinkToWhatsApp(
+  await VativeShare.shareLinkToWhatsApp(
     url: 'https://example.com',
     message: 'Check this out!',
   );
@@ -208,7 +201,7 @@ try {
 
 // Share to Snapchat
 try {
-  bool success = await VativeShare.shareLinkToSnapchat(
+  await VativeShare.shareLinkToSnapchat(
     url: 'https://example.com',
   );
 } catch (e) {
@@ -234,45 +227,7 @@ try {
 | `shareLinkToWhatsApp()` | Share message/link to WhatsApp | `url`, `message` |
 | `shareLinkToSnapchat()` | Share link to Snapchat | `url` |
 
-## Error Handling
 
-The plugin provides comprehensive error handling with specific error codes:
-
-### Common Error Codes
-
-- `INSTAGRAM_NOT_INSTALLED` - Instagram app is not installed
-- `FILE_NOT_FOUND` - The specified file path doesn't exist
-- `SHARE_FAILED` - Failed to open the sharing interface
-- `SHARE_ERROR` - General sharing error
-- `FB_APP_NOT_FOUND` - Facebook app not installed
-- `WA_APP_NOT_FOUND` - WhatsApp app not installed
-- `INVALID_ARGUMENTS` - Invalid or missing method arguments
-
-### Example Error Handling
-
-```dart
-try {
-  bool success = await VativeShare.shareImageToInstaStory(
-    imagePath: imagePath,
-    facebookAppId: facebookAppId,
-  );
-} on PlatformException catch (e) {
-  switch (e.code) {
-    case 'INSTAGRAM_NOT_INSTALLED':
-      // Show dialog to install Instagram
-      break;
-    case 'FILE_NOT_FOUND':
-      // Handle missing file
-      break;
-    case 'SHARE_FAILED':
-      // Handle sharing failure
-      break;
-    default:
-      // Handle other errors
-      print('Error: ${e.message}');
-  }
-}
-```
 
 ## Facebook App ID Setup
 
@@ -289,7 +244,6 @@ To use Instagram Story sharing, you need a Facebook App ID:
 - Sticker images should be PNG with transparency
 - Background colors use hex format (e.g., '#FF0000')
 - Video files should be MP4 format
-- Maximum video duration: 15 seconds (Instagram limitation)
 - Requires Facebook App ID for proper attribution
 
 ## Contributing
